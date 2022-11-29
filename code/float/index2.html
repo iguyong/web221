@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <style>
+            .box{
+                border: solid 2px blue;
+            }
+            #b1,#b2{
+                width: 49%;
+            }
+            #b1{
+                height: 300px;
+            }
+            #b1{
+                border-color: red;
+            }
+            #b2{
+                border-color: green;
+            }
+           #b3{
+            border-color: purple;
+           }
+           .left{
+            float: left;
+           }
+           .right{
+            float: right;
+           }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>说明</h1>
+            <p>float元素会成为一个块，从原布局中脱离出来，不再占据原位置。
+                非float元素会占据float元素原来的位置，
+                但是它的内容（尤其是文字）会围绕float元素。</p>
+        </div>
+        <div id="b1" class="box left">Box1</div>
+        <div id="b2" class="box right">Box2</div>
+        <footer class="box">Box3
+            <a href="https://iguyong.github.io">iguyong</a>
+            <div id="b3" class="box">haha</div>
+        </footer>
+    </body>
+</html>

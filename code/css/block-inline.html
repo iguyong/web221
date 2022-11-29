@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>block-inline</title>
+        <meta charset="utf-8" />
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            html{
+                margin: 2px;
+                border: solid 2px red;
+            }
+            body{
+                border: solid 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>基本选择器</h1>
+    <p>CSS基本选择器有4种：</p>
+    <dl>
+        <dt>通用选择器</dt>
+        <dd>通用选择器只有一个，用符号*表示，它匹配网页中所有的元素，特异性为 (0,0,0,0).</dd>
+        <dt>标签选择器</dt>
+        <dd>标签选择器根据标签来匹配元素，它匹配网页中所有指定标签的元素，每个标签的特异性为 (0,0,0,1).</dd>
+        <dt>类选择器</dt>
+        <dd>类选择器根据元素的class属性来匹配元素，它用 .classname 来表示，
+            匹配网页中所有class属性包含classname的元素，每个classname的特异性为 (0,0,1,0).
+            由于一个元素可能有多个类属性，一个选择器中可以串联多个classname, 例如 p.c1.c2
+        </dd>
+        <dt>id选择器</dt>
+        <dd>id选择器根据元素的id属性来匹配元素，它用 #idname 来表示，
+            匹配网页中所有id属性等于idname的元素，它的特异性为 (0,1,0,0)</dd>
+    </dl>
+    <p class="warn">注意：基本选择器可以“串联”在一起，表示“且”的关系，意味着所有条件都需满足才能匹配上，例如：</p>
+    <div id="ex1">
+        <ul class="example">
+            <li>p.c1.c2</li>
+            <li>#myId.c1</li>
+            <li>p#myId</li>
+        </ul>
+    </div>
+    <h1>组合选择器</h1>
+    <p>组合选择器有5种</p>
+    <dl>
+        <dt>并列选择器</dt>
+        <dd>并列选择器是将多个选择器用逗号隔开，用来将多个声明相同的样式写到一起，可以理解为“或”的意思</dd>
+        <dt>后代选择器</dt>
+        <dd>两个选择器用空格隔开，<code>selector1 selector2</code>表示选择所有
+            <strong>匹配selector1的元素的后代中匹配selector2的元素</strong>,
+            注意其中selector1,selector2可以是任意的选择器
+        </dd>
+        <dt>子选择器</dt>
+        <dd>两个选择器用符号<code>></code> 隔开，用法与后代选择器基本相同，
+            唯一的区别是它只匹配子代元素，不匹配孙代元素。</dd>
+        <dt>相邻兄弟选择器</dt>
+        <dd>两个选择器用符号<code>+</code>隔开，<code>selector1 selector2</code>用来选择所有
+            <strong>匹配selector1的元素的紧随其后并且匹配selector2的兄弟元素</strong>
+        </dd>
+        <dt>普通兄弟选择器</dt>
+        <dd>两个选择器用符号<code>~</code>隔开，<code>selector1 selector2</code>用来选择所有
+            <strong>匹配selector1的元素的后面的并且匹配selector2的兄弟元素</strong>
+        </dd>
+    </dl>
+    <p class="hint">注意：组合选择器也可以串联</p>
+
+    <h1>属性选择器</h1>
+    <p id="attr">属性选择器是用来匹配元素的属性的，一般用来匹配除类、id外的其它属性，
+        <span class="warn">也可以用来匹配类、id属性，但要注意特异性与专门表示类、id的选择器不同</span>
+    </p>
+    <table>
+        <caption>属性选择器说明</caption>
+        <tr>
+            <th>选择器类型</th>
+            <th>语法</th>
+            <th>示例</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td>存在选择器</td>
+            <td>[attribute]</td>
+            <td>p[id]</td>
+            <td>所有带id属性的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+        <tr>
+            <td>相等选择器</td>
+            <td>[attribute=value]</td>
+            <td>p[name="teaName"]</td>
+            <td>name属性为teaName的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+        <tr>
+            <td>包含选择器</td>
+            <td>[attribute~=value]</td>
+            <td>p[name~="stu"]</td>
+            <td>name属性中包含"stu"<strong>单词</strong>的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+        <tr>
+            <td>子串选择器</td>
+            <td>[attribute*=value]</td>
+            <td>p[title*=“ch"]</td>
+            <td>所有title属性包含"ch"子串的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+        <tr>
+            <td>前缀选择器</td>
+            <td>[attribute^=value]</td>
+            <td>p[title^="zh"]</td>
+            <td>所有title属性值以"zh"开头的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+        <tr>
+            <td>后缀选择器</td>
+            <td>[attribute$=value]</td>
+            <td>p[title$="th"]</td>
+            <td>所有title属性值以"th"结尾的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+        <tr>
+            <td>连字符选择器</td>
+            <td>[attribute|=value]</td>
+            <td>p[lang|="zh"]</td>
+            <td>所有lang属性等于"zh"或以"zh-"开头的<code>&lt;p&gt;</code>元素</td>
+        </tr>
+    </table>
+    <div class="example">
+        <p class="hint">提示：属性选择器也可以串联</p>
+        <ul id="ex2">
+            <li>p[title^="css"][lang|="cn"]</li>
+            <li>.hint[title]</li>
+        </ul>
+    </div>
+
+    <h1>继承，特异性，层叠</h1>
+    <h2>继承</h2>
+    <ul>
+        <li>CSS样式中提供了一种继承机制，可以大量简化CSS代码，缩短开发的时间。</li>
+        <li>在HTML文档中，子元素可以继承父元素的某些样式；</li>
+        <li>当子元素与父元素定义的样式重复时，则会覆盖父元素中的样式；</li>
+        <li>继承样式主要包括：字体、文本等基本属性，如字体、字号、颜色、行距等，
+            不包括：边框、边界、补白、背景、定位、布局、尺寸等。</li>
+    </ul>
+    <h2>特异性</h2>
+    <p>Specificity （特异性）：每个选择器有一个specificity, 由四部分组成 0,0,0,0 </p>
+    <ul>
+        <li>对每个id属性，增加 0,1,0,0 </li>
+        <li>对每个类属性、属性选择、伪类，增加 0,0,1,0 </li>
+        <li>对每个元素、伪元素，增加0,0,0,1</li>
+        <li>组合器没有specificity（不影响），继承的样式没有specificity</li>
+        <li>通用选择器的specificity为 0,0,0,0</li>
+        <li>内嵌样式的specificity为 1,0,0,0</li>
+    </ul>
+    <h2>层叠</h2>
+    <div>
+        <ul>
+            <li>！important 样式的优先级最高</li>
+            <li>其次按特异性（specificity) 排序</li>
+            <li>特异性相同时，“后面”的样式优先级更高（就近原则）</li>
+            <li>最低优先级：非css样式 > 继承样式 > 浏览器默认样式</li>
+        </ul>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <title>absolute练习</title>
+        <style>
+            p{
+                position: relative;
+            }
+            p span{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                color: red;
+                z-index: 100;
+            }
+            header img{
+                width: 100%;
+                height: 300px;
+            }
+            header nav div{
+                float: left;
+                margin: 3px 8px;
+                font-size: large;
+            }
+            header nav::after{
+                clear: both;
+                content: '';
+                display: block;
+            }
+            header{
+                position: relative;
+            }
+            header nav{
+                position: absolute;
+                top: 20px;
+                right: 0;
+            }
+            body{
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div><img src="../images/logo.jpg" /></div>
+            <nav>
+                <div><a href="#">首页</a></div>
+                <div><a href="study.html">学习</a></div>
+                <div><a href="food.html">美食</a></div>
+                <div><a href="movie.html">电影</a></div>
+            </nav>
+        </header>
+        <p>This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. <span>This</span> is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+        </p>
+
+        <p>This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. <span>This</span> is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+        </p>
+        <p>This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. <span>This</span> is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+        </p>
+        <p>This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. <span>This</span> is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+        </p>
+        <p>This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. <span>This</span> is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+        </p>
+        <p>This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. <span>This</span> is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+            This is a paragraph. This is a paragraph. 
+        </p>
+    </body>
+</html>

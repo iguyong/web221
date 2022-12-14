@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Tab练习</title>
+        <meta charset="utf-8">
+        <style>
+            button.active{
+                background-color: darkslategray;
+            }
+        </style>
+    </head>
+    <body>
+        <p>点击以下标签栏中的按钮</p>
+        <div>
+            <div>
+                <button class="tab active" >London</button>
+                <button class="tab">Paris</button>
+                <button class="tab">Tokyo</button>
+                <button class="tab">Beijing</button>
+            </div>
+            <div class="tabdiv">London is the capital city of England.</div>
+            <div class="tabdiv">Paris is the capital of France.</div>
+            <div class="tabdiv">Tokyo is the capital of Japan.</div>
+            <div class="tabdiv">Beijing is the capital of China.</div>
+        </div>
+        <script>
+            let tabDivs = document.querySelectorAll('.tabdiv');
+            let tabs = document.querySelectorAll('.tab');
+            function openTab(n){
+                for (let i = 0; i < tabDivs.length; i++){
+                    tabDivs[i].style.display = 'none';
+                    tabs[i].classList.remove('active');
+                }
+                tabDivs[n].style.display = 'block';
+                tabs[n].classList.add('active');
+            }
+            
+            for(let i = 0; i< tabs.length; i++){
+                tabs[i].onclick = function (){
+                openTab(i);
+            };
+            }
+            openTab(0);
+        </script>
+    </body>
+</html>

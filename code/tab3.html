@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>tab练习</title>
+    <style>
+        button.active{
+            background-color: dimgray;
+        }
+    </style>
+  </head>
+  <body>
+    <p>点击下面的标签按钮</p>
+    <div>
+      <button class="btn active" >London</button>
+      <button class="btn" >Paris</button>
+      <button class="btn">Tokyo</button>
+    </div>
+    <div class="city">London is the capital of England.</div>
+    <div class="city" style="display: none">Paris is the capital of France.</div>
+    <div class="city" style="display: none">Tokyo is the capital of Japan.</div>
+    <script>
+      let btns = document.getElementsByClassName('btn');
+      for(let i = 0; i < btns.length; i++){
+        btns[i].onclick = function(){openCity(i)};
+      }
+      function openCity(n) {
+        let divs = document.getElementsByClassName('city');
+        for(let i = 0; i < divs.length; i++){
+            divs[i].style.display = "none";
+            btns[i].classList.remove('active');
+        }
+        divs[n].style.display='block';
+        btns[n].classList.add('active');
+      }
+    </script>
+  </body>
+</html>
